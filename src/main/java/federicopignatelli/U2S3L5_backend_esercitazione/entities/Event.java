@@ -24,8 +24,7 @@ public class Event {
     public LocalDate date;
     public String location;
     public int maxavailability;
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    @JoinColumn(name = "userid")
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<User> users;
 }
