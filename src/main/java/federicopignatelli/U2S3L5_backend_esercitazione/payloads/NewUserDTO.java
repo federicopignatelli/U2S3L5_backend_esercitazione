@@ -1,4 +1,4 @@
-package federicopignatelli.U2S3L5_backend_esercitazione.payloads.users;
+package federicopignatelli.U2S3L5_backend_esercitazione.payloads;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;

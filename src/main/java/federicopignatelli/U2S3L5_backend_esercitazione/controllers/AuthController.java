@@ -2,10 +2,10 @@ package federicopignatelli.U2S3L5_backend_esercitazione.controllers;
 
 import federicopignatelli.U2S3L5_backend_esercitazione.entities.User;
 import federicopignatelli.U2S3L5_backend_esercitazione.exceptions.BadRequestException;
-import federicopignatelli.U2S3L5_backend_esercitazione.payloads.users.NewUserDTO;
-import federicopignatelli.U2S3L5_backend_esercitazione.payloads.users.NewUserResponseDTO;
-import federicopignatelli.U2S3L5_backend_esercitazione.payloads.users.UserLoginDTO;
-import federicopignatelli.U2S3L5_backend_esercitazione.payloads.users.UserLoginResponseDTO;
+import federicopignatelli.U2S3L5_backend_esercitazione.payloads.NewUserDTO;
+import federicopignatelli.U2S3L5_backend_esercitazione.payloads.NewUserResponseDTO;
+import federicopignatelli.U2S3L5_backend_esercitazione.payloads.UserLoginDTO;
+import federicopignatelli.U2S3L5_backend_esercitazione.payloads.UserLoginResponseDTO;
 import federicopignatelli.U2S3L5_backend_esercitazione.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

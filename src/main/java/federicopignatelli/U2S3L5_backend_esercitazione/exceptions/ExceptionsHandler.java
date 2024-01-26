@@ -5,7 +5,7 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import federicopignatelli.U2S3L5_backend_esercitazione.payloads.users.ErrorsDTO;
+import federicopignatelli.U2S3L5_backend_esercitazione.payloads.ErrorsDTO;
 
 import java.time.LocalDateTime;
 
