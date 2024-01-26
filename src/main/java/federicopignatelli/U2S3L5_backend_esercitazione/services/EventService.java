@@ -5,6 +5,10 @@ import federicopignatelli.U2S3L5_backend_esercitazione.exceptions.NotFoundExcept
 import federicopignatelli.U2S3L5_backend_esercitazione.payloads.NewEventDTO;
 import federicopignatelli.U2S3L5_backend_esercitazione.repositories.EventDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -24,6 +28,11 @@ public class EventService {
         newEvent.setMaxavailability(body.maxavailability());
 
         return eventdao.save(newEvent);
+    }
+
+    public Page<Event> getEvent(int page, int size, String sort) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sort));
+        return eventdao.findAll(pageable);
     }
 
     public Event findById(UUID id) {
