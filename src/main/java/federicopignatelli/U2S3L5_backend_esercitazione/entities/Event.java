@@ -19,11 +19,11 @@ public class Event {
     @Id
     @GeneratedValue
     private UUID id;
-    public String eventTitle;
-    public String eventDescription;
-    public LocalDate eventDate;
+    public String title;
+    public String description;
+    public LocalDate date;
     public String location;
-    public int availablePlaces;
+    public int maxavailability;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user-id")
     @JsonIgnore
