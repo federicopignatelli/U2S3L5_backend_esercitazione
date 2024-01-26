@@ -1,6 +1,7 @@
 package federicopignatelli.U2S3L5_backend_esercitazione.exceptions;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -20,6 +21,12 @@ public class ExceptionsHandler {
 	@ResponseStatus(HttpStatus.UNAUTHORIZED)
 	public ErrorsDTO handleUnauthorized(UnauthorizedException e) {
 		return new ErrorsDTO(e.getMessage(), LocalDateTime.now());
+	}
+
+	@ExceptionHandler(AccessDeniedException.class)
+	@ResponseStatus(HttpStatus.FORBIDDEN)
+	public ErrorsDTO handleAccessDenied(AccessDeniedException ex) {
+		return new ErrorsDTO("Il tuo ruolo non permette di accedere a questa funzionalità!", LocalDateTime.now());
 	}
 
 	@ExceptionHandler(NotFoundException.class)

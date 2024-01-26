@@ -1,9 +1,7 @@
 package federicopignatelli.U2S3L5_backend_esercitazione.services;
 
 import federicopignatelli.U2S3L5_backend_esercitazione.entities.User;
-import federicopignatelli.U2S3L5_backend_esercitazione.exceptions.BadRequestException;
 import federicopignatelli.U2S3L5_backend_esercitazione.exceptions.NotFoundException;
-import federicopignatelli.U2S3L5_backend_esercitazione.payloads.users.NewUserDTO;
 import federicopignatelli.U2S3L5_backend_esercitazione.repositories.UsersDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,29 +18,9 @@ public class UsersService {
     private UsersDAO usersDAO;
 
     public Page<User> getUsers(int page, int size, String orderBy) {
-        // return usersDAO.findAll();
         if (size >= 100) size = 100;
-        Pageable pageable = PageRequest.of(page, size, Sort.by(orderBy)); // Di default l'ordine è ascendente
-        // Se volessimo cambiare l'ordine si usa Sort.Direction.DESC
-        // Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, orderBy));
+        Pageable pageable = PageRequest.of(page, size, Sort.by(orderBy));
         return usersDAO.findAll(pageable);
-    }
-
-    public User save(NewUserDTO body) {
-        // Verifico se l'email è già in uso
-		/*Optional<User> user = usersDAO.findByEmail(body.getEmail());
-		if(user.isPresent()) throw new RuntimeException();*/
-
-        usersDAO.findByEmail(body.email()).ifPresent(user -> {
-            throw new BadRequestException("L'email " + user.getEmail() + " è già in uso!");
-        });
-
-        User newUser = new User();
-        newUser.setSurname(body.surname());
-        newUser.setName(body.name());
-        newUser.setEmail(body.email());
-        newUser.setPassword(body.password());
-        return usersDAO.save(newUser);
     }
 
     public User findById(UUID id) {

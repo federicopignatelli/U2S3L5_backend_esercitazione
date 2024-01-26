@@ -28,5 +28,4 @@ public class Event {
     @JoinColumn(name = "user-id")
     @JsonIgnore
     private List<User> users;
-
 }
