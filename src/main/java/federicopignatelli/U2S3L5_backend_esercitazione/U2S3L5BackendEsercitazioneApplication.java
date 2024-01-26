@@ -9,8 +9,5 @@ public class U2S3L5BackendEsercitazioneApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(U2S3L5BackendEsercitazioneApplication.class, args);
 	}
-	//commento per provare merge
-	//commento per provare merge
-	//commento per provare merge
 
 }
