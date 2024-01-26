@@ -21,7 +21,7 @@ public class EventController {
     @Autowired
     private EventService eventService;
 
-    @PostMapping
+    @PostMapping("/create")
     @PreAuthorize("hasAuthority('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     public NewEventResponseDTO save(@RequestBody @Validated NewEventDTO body, BindingResult validation) throws Exception {
